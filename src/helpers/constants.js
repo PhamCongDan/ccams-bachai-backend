@@ -21,4 +21,15 @@ const units = [
   },
 ];
 
-module.exports = { units }
+const dbConfig = {
+  server: process.env.SERVER_NAME, 
+  database: process.env.DATABASE_NAME,
+  user: process.env.DATABASE_USER_NAME,
+  password: process.env.DATABASE_PASSWORD,
+  trustServerCertificate: true,
+  options: {
+    encrypt: true,
+  }
+};
+
+module.exports = { units, dbConfig }
