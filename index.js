@@ -12,7 +12,7 @@ const app = express();
 const router = require('./src/routers');
 
 // Configure the app port
-const port = process.env.PORT || 9999;
+const port = process.env.PORT || 5000;
 app.set('port', port);
 
 app.use(cors());
