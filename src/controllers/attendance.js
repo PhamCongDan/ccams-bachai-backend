@@ -172,4 +172,4 @@ const getAttendanceData = async (req, res, next) => {
   return res.status(200).json([])
 }
 
-module.exports = { getAttendanceData }
+module.exports = { getAttendanceData, getScholastic }

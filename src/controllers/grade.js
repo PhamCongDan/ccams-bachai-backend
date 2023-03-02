@@ -1,21 +1,6 @@
 var sql = require('mssql');
 const { dbConfig } = require('../helpers/constants');
-
-const getScholastic = async () => {
-  let result = -1;
-  try {
-    const poolPromise = new sql.ConnectionPool(dbConfig)
-    const connect = await poolPromise.connect();
-    const query = poolPromise.request();
-    const data = await query.query("SELECT [DEFAULTNAME], [DEFAULTVALUE] FROM LOOK_UP_DATA");
-    const getScholasticField = data.recordset.find(item => item.DEFAULTNAME === 'NIENHOCHIENTAI');
-    connect.close();
-    result = getScholasticField.DEFAULTVALUE;
-  } catch (err) {
-    console.log(err);
-  }
-  return result;
-}
+const { getScholastic } = require('./attendance');
 
 const getClassFromGradeId = async (gradeIds, scholasticId) => {
   if (!gradeIds.length) return null;
